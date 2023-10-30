@@ -1,0 +1,79 @@
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_InstagramFeed
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+.instagramfeed-container .instagramfeed-photo {
+  margin: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .instagramfeed-container .instagramfeed-photo .instagramfeed-post-caption {
+    font-size: 14px !important;
+    opacity: 1 !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .instagramfeed-container .instagramfeed-photo .instagramfeed-post-caption {
+    opacity: 1 !important;
+  }
+}
+
+.instagramfeed-container .instagramfeed-photo .instagramfeed-post-caption {
+  line-height: 18px;
+  letter-spacing: normal;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #F0F0F0;
+  max-height: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.instagramfeed-photo:hover .instagramfeed-post-caption {
+  opacity: 1 !important;
+  display: inline;
+}
+
+.instagramfeed-container .instagramfeed-photo img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  padding: 0 1px 1px 0;
+}
+
+.instagramfeed-container .shuffle {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.instagramfeed-container .shuffle .instagramfeed-photo {
+    width: 25%;
+}

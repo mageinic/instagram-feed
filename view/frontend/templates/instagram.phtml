@@ -1,0 +1,86 @@
+<?php
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_InstagramFeed
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+
+/** @var MageINIC\InstagramFeed\Block\Widget $block */
+
+if ($block->isEnable()):
+    $widgetId = uniqid('-', false);
+    $options = $block->getAllOptions();
+    $total = $options['total_number'];
+    $calcWidth = $block->calcWidth();
+    $width = $block->getNumberRow($options['layout']) ? $calcWidth . '%' : $calcWidth . 'px';
+    $sizeIcon = ($calcWidth < 10) ? '10px' : '14px';
+    ?>
+    <div class="instagramfeed-container">
+        <div class="instagramfeed-header">
+            <h3><?= /** @noEscape */ __($block->getData('title')) ?></h3>
+            <div><?= /** @noEscape */ __($block->getData('description')) ?></div>
+        </div>
+        <div id="instagramfeed-photos-<?= /** @noEscape */ $widgetId ?>" class="row shuffle"></div>
+    </div>
+    <style type="text/css">
+        #instagramfeed-photos-<?= $widgetId?> .instagramfeed-photo {
+            width: calc(<?= $width ?> -4px);
+        }
+
+        .instagramfeed-container .instagramfeed-photo .instagramfeed-post-caption {
+            font-size: <?= $sizeIcon ?>;
+        }
+
+        @media (max-width: 767px) {
+            .instagramfeed-container #instagramfeed-photos-<?= $widgetId; ?> .instagramfeed-photo {
+                width: 100%;
+            }
+
+            .instagramfeed-container #instagramfeed-photos-<?= $widgetId; ?> .instagramfeed-photo.shuffle-item {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 767px) and (max-width: 1024px) {
+            .instagramfeed-container #instagramfeed-photos-<?= $widgetId; ?> .instagramfeed-photo {
+                width: 30%;
+            }
+
+            .instagramfeed-container #instagramfeed-photos-<?= $widgetId; ?> .instagramfeed-photo.shuffle-item {
+                width: auto;
+            }
+        }
+    </style>
+    <script type="text/x-magento-init">
+    {
+        "#instagramfeed-photos-<?= /** @noEscape */ $widgetId ?>": {
+            "mageinic/instagram": {
+                "id": "<?= /** @noEscape */ $widgetId ?>",
+                "url": "<?= /** @noEscape */ $block->getUrl('instagram/feed/get') ?>",
+                "count": "<?= /** @noEscape */ $total ?>",
+                "layout": "<?= /** @noEscape */ $options['layout'] ?>",
+                "show_caption": "<?= /** @noEscape */ $options['show_caption'] ?>",
+                "show_popup": "<?= /** @noEscape */ $options['show_popup'] ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>
