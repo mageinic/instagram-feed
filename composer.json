@@ -1,6 +1,6 @@
 {
-      "name": "mageinic/module-instagramfeed",
-      "description": "Magento 2 Instagram Feed Extension",
+      "name": "mageinic/instagramfeed",
+      "description": "Instagram Feed by MageINIC. Enhance your Magento 2 store with our Instagram Feed Extension. Effortlessly integrate your brand's Instagram content into your online shop to engage visitors and increase followers. Elevate your social media presence with seamless installation and customization.",
       "require": {
             "php": "^8.0",
             "mageinic/core": "1.0.*"
@@ -8,8 +8,9 @@
       "type": "magento2-module",
       "version": "1.0.0",
       "license": [
-        "Commercial"
-        ],
+        "OSL-3.0",
+        "AFL-3.0"
+       ],
         "authors": [
             {
                 "name": "MageINIC",
