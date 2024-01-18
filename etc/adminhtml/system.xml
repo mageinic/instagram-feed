@@ -27,9 +27,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="mageinic" sortOrder="450" translate="label">
-            <label>MageINIC</label>
-        </tab>
         <section id="instagramfeed" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5"
                  translate="label">
             <label>Instagram Feed</label>

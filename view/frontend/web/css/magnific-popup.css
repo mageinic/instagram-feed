@@ -318,7 +318,6 @@ button::-moz-focus-inner {
     background: black;
 }
 
-/* Main image in popup */
 img.mfp-img {
     width: auto;
     max-width: 100%;
@@ -484,5 +483,3 @@ img.mfp-img {
     right: 0;
     padding-top: 0;
 }
-
-
